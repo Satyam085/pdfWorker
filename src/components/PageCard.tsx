@@ -53,7 +53,7 @@ export const PageCard: React.FC<PageCardProps> = ({ page, index, onDelete, onRot
       </div>
 
       {/* Hover Controls */}
-      <div className="absolute inset-x-0 bottom-0 bg-white/95 backdrop-blur-sm p-2 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity border-t border-gray-100">
+      <div className="absolute inset-x-0 bottom-0 bg-white/95 backdrop-blur-sm p-2 flex justify-between items-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity border-t border-gray-100">
         <button
           onClick={(e) => { e.stopPropagation(); onRotate(page.id); }}
           className="p-1.5 hover:bg-gray-100 rounded-full text-gray-600 hover:text-blue-600 transition-colors"
