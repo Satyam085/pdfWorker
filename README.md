@@ -1,97 +1,67 @@
+# Offline PDF Worker
 
-# ✅ **BEST OPTIONS FOR OFFLINE PDF MERGE/SPLIT/EDIT IN A WEB APP**
+A powerful, secure, and fully offline PDF manipulation tool built with React. Merge, split, rearrange, rotate, and delete PDF pages directly in your browser without ever uploading your files to a server.
 
----
+## 🚀 Features
 
-## **1. PDF-LIB (JavaScript, no WebAssembly, very easy)**
+-   **100% Offline**: All processing happens locally in your browser. No data leaves your device.
+-   **Page Management**:
+    -   **Reorder**: Drag and drop pages to rearrange them.
+    -   **Rotate**: Rotate individual pages 90 degrees clockwise.
+    -   **Delete**: Remove unwanted pages.
+-   **Merge Capabilities**: Combine pages from multiple PDF files into a single document.
+-   **Visual Interface**: High-quality page thumbnails for easy organization.
 
-**Perfect for basic merge/split/delete/rearrange.**
+## 🛠️ Tech Stack
 
-* Works entirely offline.
-* Lightweight, pure JavaScript (no WASM).
-* Great support for:
+-   **Frontend**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **PDF Processing**:
+    -   [`pdf-lib`](https://pdf-lib.js.org/): For modifying, merging, and saving PDFs.
+    -   [`pdfjs-dist`](https://mozilla.github.io/pdf.js/): For rendering PDF page previews.
+-   **Interactions**: [`@dnd-kit`](https://dndkit.com/): For performant drag-and-drop functionality.
+-   **Icons**: [Lucide React](https://lucide.dev/)
 
-  * Merge PDFs
-  * Extract pages
-  * Delete pages
-  * Rearrange pages
-  * Add text/images
-* Supports Browser + Vite/React.
+## 📦 Getting Started
 
-**Limitations**:
+### Prerequisites
 
-* No advanced editing (OCR, form filling, compression).
+-   Node.js (v18 or higher)
+-   pnpm (recommended) or npm/yarn
 
-👉 Recommended for your requirements.
+### Installation
 
----
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/satyam085/pdf-worker.git
+    cd pdf-worker
+    ```
 
-# 🔥 **BEST STACK FOR YOU (Free + Offline)**
+2.  Install dependencies:
+    ```bash
+    pnpm install
+    ```
 
-A recommended stack:
+### Running the App
 
-### ✔ **Frontend**:
+Start the development server:
 
-* Vite + React
-* Tailwind for UI
-* HTML5 drag & drop
+```bash
+pnpm dev
+```
 
-### ✔ **PDF Engine**:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-**pdf-lib**
+### Building for Production
 
-### ✔ **Page Thumbnails**:
+Build the application for deployment:
 
+```bash
+pnpm build
+```
 
----
+The output files will be in the `dist` directory.
 
-# 🎯 **KEY FEATURES YOU CAN BUILD (100% Offline)**
+## 🛡️ Privacy
 
-### 1️⃣ **Merge PDFs**
-
-
----
-
-### 2️⃣ **Split PDF**
-
-You copy only selected pages into a new PDF.
-
----
-
-### 3️⃣ **Delete Pages**
-
-Just skip them when generating the new PDF.
-
----
-
-### 4️⃣ **Rearrange Pages**
-
-Store pages in an array → reorder via drag-and-drop → generate a new PDF.
-
----
-
-### 5️⃣ **Preview Pages**
-
-
-
----
-
----
-
-# 🎨 UI Flow (like Smallpdf but offline)
-
-1. User uploads PDF(s)
-2. Preview pages as tiles
-3. Drag and drop to reorder
-4. Select pages → delete / split
-5. Export result as new PDF
-6. Save locally (no backend)
-
-
-# ⭐ Final Recommendation
-
-### For requirement:
-
-> **Merge + Split + Delete Pages + Rearrange Pages + Fully Offline**
-
-
+This application is designed with privacy as a priority. Unlike many online PDF tools, **Offline PDF Worker** processes everything on the client side. Your sensitive documents are never sent to a cloud server, making it safe for confidential data.
