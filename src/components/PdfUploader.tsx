@@ -47,7 +47,7 @@ export const PdfUploader: React.FC<PdfUploaderProps> = ({ onPagesAdded, classNam
     <div
       className={clsx(
         "relative border-2 border-dashed rounded-xl p-8 transition-colors text-center cursor-pointer",
-        isDragging ? "border-blue-500 bg-blue-50/10" : "border-gray-600 hover:border-gray-400 hover:bg-white/5",
+        isDragging ? "border-blue-500 bg-blue-50" : "border-slate-300 hover:border-slate-400 hover:bg-slate-50",
         isLoading && "opacity-50 pointer-events-none",
         className
       )}
@@ -69,15 +69,15 @@ export const PdfUploader: React.FC<PdfUploaderProps> = ({ onPagesAdded, classNam
         {isLoading ? (
           <Loader2 className="w-10 h-10 animate-spin text-blue-500" />
         ) : (
-          <FileUp className="w-10 h-10 text-gray-400" />
+          <FileUp className="w-10 h-10 text-slate-400" />
         )}
-        <div className="text-sm text-gray-300">
+        <div className="text-sm text-slate-600">
           {isLoading ? (
             <p className="text-lg font-medium">Processing PDF...</p>
           ) : (
             <>
               <p className="text-lg font-medium">Click or Drag PDF here</p>
-              <p className="text-xs text-gray-500 mt-1">Supports multiple files</p>
+              <p className="text-xs text-slate-500 mt-1">Supports multiple files</p>
             </>
           )}
         </div>

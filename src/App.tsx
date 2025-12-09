@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileDown, Trash2 } from 'lucide-react';
+import { FileDown, Trash2, Heart, Github } from 'lucide-react';
 import { PdfUploader } from './components/PdfUploader';
 import { PageGrid } from './components/PageGrid';
 import { generatePdf } from './utils/pdfUtils';
@@ -52,18 +52,18 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-100 flex flex-col">
-      <header className="bg-neutral-800 border-b border-neutral-700 p-4 sticky top-0 z-50">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+      <header className="bg-white border-b border-slate-200 p-4 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
               PDF Worker
             </span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-neutral-700 text-neutral-400">Offline</span>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">Offline</span>
           </div>
           
           <div className="flex items-center gap-4">
-            <span className="text-sm text-neutral-400 hidden sm:inline">
+            <span className="text-sm text-slate-500 hidden sm:inline">
               {pages.length} page{pages.length !== 1 && 's'}
             </span>
           </div>
@@ -76,7 +76,7 @@ function App() {
             <div className="w-full max-w-md">
               <PdfUploader onPagesAdded={handlePagesAdded} />
             </div>
-            <p className="mt-8 text-neutral-500 text-sm max-w-lg text-center leading-relaxed">
+            <p className="mt-8 text-slate-500 text-sm max-w-lg text-center leading-relaxed">
               Your files are processed entirely in your browser. No data leaves your device.
               <br />
               Merge, split, reorder, and rotate pages instantly.
@@ -86,7 +86,7 @@ function App() {
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
              {/* Toolbar for small screens or quick actions could go here */}
              <div className="mb-6 flex justify-between items-center">
-               <h2 className="text-lg font-medium text-neutral-300">Organize Pages</h2>
+               <h2 className="text-lg font-medium text-slate-700">Organize Pages</h2>
                <button 
                  onClick={() => setPages([])}
                  className="text-sm text-red-400 hover:text-red-300 flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-red-500/10 transition-colors"
@@ -106,17 +106,34 @@ function App() {
         )}
       </main>
 
+      <footer className="p-6 text-center text-slate-500 text-sm">
+        <div className="flex items-center justify-center gap-2">
+          <span>Made with</span>
+          <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+          <span>by Satyam Singh</span>
+          <a 
+            href="https://github.com/Satyam085" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 hover:text-slate-800 transition-colors ml-2"
+            title="Visit GitHub Profile"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+        </div>
+      </footer>
+
       {/* Floating Action Bar */}
       {pages.length > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-50">
-          <div className="bg-neutral-800/90 backdrop-blur-md border border-neutral-700/50 shadow-2xl rounded-2xl p-2 flex items-center gap-2">
-            <div className="flex-1 flex items-center justify-center border-r border-neutral-700 pr-2">
-               <span className="text-sm font-medium text-neutral-300">{pages.length} Pages</span>
+          <div className="bg-white/90 backdrop-blur-md border border-slate-200/50 shadow-2xl rounded-2xl p-2 flex items-center gap-2">
+            <div className="flex-1 flex items-center justify-center border-r border-slate-200 pr-2">
+               <span className="text-sm font-medium text-slate-700">{pages.length} Pages</span>
             </div>
             
              <PdfUploader 
                onPagesAdded={handlePagesAdded} 
-               className="!p-2 !border-0 !bg-transparent hover:!bg-neutral-700/50 !rounded-xl w-auto flex-1 h-12 flex items-center justify-center" 
+               className="!p-2 !border-0 !bg-transparent hover:!bg-slate-100 !rounded-xl w-auto flex-1 h-12 flex items-center justify-center" 
              />
 
             <button
