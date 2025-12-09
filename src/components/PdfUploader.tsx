@@ -7,9 +7,10 @@ import { clsx } from 'clsx';
 interface PdfUploaderProps {
   onPagesAdded: (pages: ImportedPage[]) => void;
   className?: string;
+  variant?: 'default' | 'compact';
 }
 
-export const PdfUploader: React.FC<PdfUploaderProps> = ({ onPagesAdded, className }) => {
+export const PdfUploader: React.FC<PdfUploaderProps> = ({ onPagesAdded, className, variant = 'default' }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -42,6 +43,36 @@ export const PdfUploader: React.FC<PdfUploaderProps> = ({ onPagesAdded, classNam
     setIsDragging(false);
     handleFiles(e.dataTransfer.files);
   };
+
+  if (variant === 'compact') {
+    return (
+      <div
+        className={clsx(
+          "relative border border-slate-300 rounded-xl px-4 py-2 transition-all text-center cursor-pointer flex items-center justify-center gap-2 hover:bg-slate-50",
+          isLoading && "opacity-50 pointer-events-none",
+          className
+        )}
+        onClick={() => fileInputRef.current?.click()}
+      >
+        <input
+          type="file"
+          ref={fileInputRef}
+          className="hidden"
+          accept="application/pdf"
+          multiple
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+        {isLoading ? (
+          <Loader2 className="w-5 h-5 animate-spin text-blue-500" />
+        ) : (
+          <FileUp className="w-5 h-5 text-slate-500" />
+        )}
+        <span className="text-sm font-medium text-slate-700 whitespace-nowrap">
+          {isLoading ? 'Processing...' : 'Add PDF'}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div

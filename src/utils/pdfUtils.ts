@@ -15,7 +15,8 @@ export interface ImportedPage {
   pageIndex: number;
   previewUrl: string;
   fileData: ArrayBuffer; // Keeping reference to source file data
-  rotation: number; 
+  rotation: number;
+  globalIndex?: number;
 }
 
 export const loadPdfPages = async (file: File): Promise<ImportedPage[]> => {

@@ -10,7 +10,12 @@ function App() {
   const [isExporting, setIsExporting] = useState(false);
 
   const handlePagesAdded = (newPages: ImportedPage[]) => {
-    setPages((prev) => [...prev, ...newPages]);
+    const startIndex = pages.length;
+    const pagesWithIndex = newPages.map((p, i) => ({
+      ...p,
+      globalIndex: startIndex + i + 1
+    }));
+    setPages((prev) => [...prev, ...pagesWithIndex]);
   };
 
   const handleReorder = (newPages: ImportedPage[]) => {
@@ -133,7 +138,8 @@ function App() {
             
              <PdfUploader 
                onPagesAdded={handlePagesAdded} 
-               className="!p-2 !border-0 !bg-transparent hover:!bg-slate-100 !rounded-xl w-auto flex-1 h-12 flex items-center justify-center" 
+               variant="compact"
+               className="flex-1 w-auto h-12 border-0 bg-transparent hover:bg-slate-50" 
              />
 
             <button

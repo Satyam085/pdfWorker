@@ -47,8 +47,13 @@ export const PageCard: React.FC<PageCardProps> = ({ page, index, onDelete, onRot
         />
         
         {/* Page Number Badge */}
-        <div className="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded-full backdrop-blur-sm">
-          {index + 1}
+        <div className="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5 shadow-sm border border-white/10">
+          <span className="font-semibold">{index + 1}</span>
+          {page.globalIndex && page.globalIndex !== index + 1 && (
+            <span className="text-white/70 pl-1.5 border-l border-white/20">
+              Orig: {page.globalIndex}
+            </span>
+          )}
         </div>
       </div>
 
